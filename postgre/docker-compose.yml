@@ -1,0 +1,41 @@
+version: "3.9"
+services:
+  pgdatabase:
+    container_name: postgres_container
+    image: postgres
+    environment:
+      POSTGRES_DB: my_database
+      POSTGRES_USER: user_name
+      POSTGRES_PASSWORD: cool_pass
+    volumes:
+      - postgres_volume_local:/var/lib/postgresql/data:rw
+    ports:
+      - "5432:5432"
+    networks:
+      - postgres
+
+  pgadmin:
+    container_name: pgadmin_container
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "admin@serhii.com"
+      PGADMIN_DEFAULT_PASSWORD: "pgadminpwd4habr"
+    ports:
+      - "5050:80"
+    restart: unless-stopped
+    networks:
+      - postgres
+
+volumes:
+  postgres_volume_local:
+    external: true
+
+networks:
+  postgres:
+    driver: bridge
+
+#Is there a difference in the steps of executing the Event Loop in the Browser and Node.js ?
+
+#Simple Answer:
+#Yes. In the browser, the execution queue is simpler and has a single order.
+#In the node.js, it has several stages of execution for different types of events.
