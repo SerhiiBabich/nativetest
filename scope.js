@@ -1,5 +1,5 @@
 // test1
-{
+if (false) {
 	let a = 5;
 	let printA;
 
@@ -14,7 +14,7 @@
 }
 
 // test2
-{
+if (false) {
 	var a = 1;
 	var b = 2;
 	(function () {
@@ -25,7 +25,7 @@
 }
 
 // test3
-{
+if (false) {
 	var obj = { num: 2 };
 
 	function add(a, b) {
@@ -44,7 +44,7 @@
 }
 
 // test4
-{
+if (false) {
 	console.log([1, 2, 3].slice(0, 1));
 	let slice = Array.prototype.slice;
 	console.log(slice.call([1, 2, 3], 0, 1));
@@ -61,4 +61,22 @@
 
 	var amazing = bind(returnFoo, context);
 	console.log(amazing()); // => bar
+}
+
+// test5
+if (false) {
+	var i;
+	for (i = 0; i < 3; i++) {
+		setTimeout(function () {
+			console.log(i);
+		}, 1000);
+	}
+}
+
+{
+	for (let i = 0; i < 3; i++) {
+		setTimeout(function () {
+			console.log(i);
+		}, 1000);
+	}
 }

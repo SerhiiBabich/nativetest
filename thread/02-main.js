@@ -25,7 +25,7 @@ function mainPage(request, response) {
 }
 
 function calcPage(request, response) {
-	let worker = new wt.Worker('./sub.js');
+	let worker = new wt.Worker('./02-sub.js');
 	worker.on('message', (value) => {
 		result = value;
 

@@ -6,7 +6,7 @@ const server = http.createServer((req, res) => {
 		res.writeHead(200, { 'Content-Type': 'text/plain' });
 		res.end('Home page');
 	} else if (req.url === '/slow-page') {
-		const worker = new Worker('./worker-thread.js');
+		const worker = new Worker('./01-worker-thread.js');
 
 		worker.on('message', (j) => {
 			res.writeHead(200, { 'Content-Type': 'text/plain' });
